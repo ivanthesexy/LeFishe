@@ -105,7 +105,7 @@ namespace LeFishe
                 "how to leave Detroit",
                 "snowman getting fresh cut",
                 "where did my waifu go after taking my meds",
-                "how do i write c# programs",
+                "how do i write c%23 programs",
                 "help my linux distro came without the sex tips",
                 "templeos free crack no virus 2022",
                 "is africa made out of chocolate",
@@ -121,6 +121,9 @@ namespace LeFishe
                 "where is republic of gamers",
                 "there's a black man in a suit waiting outside of my house and hes glowing help",
                 "mandela catalouge intruder trap rule 34",
+                "Best club penguin memes 2015 compilation (legit)",
+                "My computer is doing weird things WTF is happenin PLS HALP!!!1%3F",
+                "how 2 sex",
                 "racoon eating grapes"};
                 System.Diagnostics.Process.Start("https://google.com/search?q=" + funny[new System.Random().Next(0, funny.Length)].Replace(" ", "%20"));
                 Close();
