@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="400"
+        x:Class="LeFishe2.MainWindow"
+        Title="CONGRATULATIONS!"
+		Icon="/ASSets/icon.ico"
+		Width="370" Height="400"
+		MaxWidth="370" MaxHeight="400"
+		MinWidth="370" MinHeight="400"
+		Background="#f0f0f0">
+	<StackPanel Margin="10">
+		<Label>Congratulations, you are our lucky winner!</Label>
+		<Panel Background="White">
+			<Image Width="370" Height="300" Source="/ASSets/fishe.png"></Image>
+		</Panel>
+		<TextBlock TextDecorations="Underline" Foreground="Blue" Classes="link">01100001 01100111 01101111 01101110 01111001</TextBlock>
+		<DockPanel Margin="0 10 0 0">
+			<Button Click="CrimeClick" Name="Crime">View Black Crime Statistics</Button>
+			<Label Foreground="#f0f0f0">000000000000</Label>
+			<Button Click="OkClick" Name="Ok">Ok</Button>
+		</DockPanel>
+	</StackPanel>
+</Window>
