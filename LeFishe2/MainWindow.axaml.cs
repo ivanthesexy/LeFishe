@@ -68,11 +68,11 @@ namespace LeFishe2
         }
 
         /// <summary>
-        /// COpied from https://github.com/Haltroy/HTAlt/blob/master/HTAlt.Standart/Tools.cs#L1417
+        /// Copied from https://github.com/Haltroy/HTAlt/blob/master/HTAlt.Standart/Tools.cs#L1417
         /// </summary>
         public static string ReadFile(string fileLocation)
         {
-            System.IO.StreamReader sr = new System.IO.StreamReader(ReadFile(fileLocation), System.Text.Encoding.Unicode);
+            System.IO.StreamReader sr = new System.IO.StreamReader(new System.IO.FileStream(fileLocation, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite), System.Text.Encoding.Unicode);
             string result = sr.ReadToEnd();
             sr.Close();
             return result;
@@ -89,7 +89,7 @@ namespace LeFishe2
                 {
                     WriteFile(JokesLocation, text);
                 }
-                catch (System.Exception) { } //ignored.
+                catch (System.Exception sex) { } //ignored.
             }
             catch (System.Exception ex)
             {
