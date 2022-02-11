@@ -18,7 +18,6 @@ namespace LeFishe2
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
-            Sync();
         }
 
         /// <summary>
@@ -53,13 +52,13 @@ namespace LeFishe2
         public static void WriteFile(string fileLocation, string input)
         {
             if (!System.IO.Directory.Exists(new System.IO.FileInfo(fileLocation).DirectoryName)) { System.IO.Directory.CreateDirectory(new System.IO.FileInfo(fileLocation).DirectoryName); }
-            if (System.IO.File.Exists(fileLocation))
-            {
-                System.IO.File.Delete(fileLocation);
-            }
-            System.IO.File.Create(fileLocation).Dispose();
             if (ReadFile(fileLocation) != input)
             {
+                 if (System.IO.File.Exists(fileLocation))
+            	{
+                	System.IO.File.Delete(fileLocation);
+            	}
+            System.IO.File.Create(fileLocation).Dispose();
                 System.IO.FileStream writer = new System.IO.FileStream(fileLocation, System.IO.FileMode.Open, System.IO.FileAccess.Write, System.IO.FileShare.ReadWrite);
                 var bytes = System.Text.Encoding.Unicode.GetBytes(input);
                 writer.Write(bytes, 0, bytes.Length);
@@ -93,18 +92,24 @@ namespace LeFishe2
             }
             catch (System.Exception ex)
             {
+            try {
                 System.Console.WriteLine("Error on getting jokes, exception caught: {0}", ex.ToString());
-                var fi = new System.IO.FileInfo(JokesLocation);
-                if (fi.Exists && fi.Length > 0)
+                if (System.IO.File.Exists(JokesLocation) && new System.IO.FileInfo(JokesLocation).Length > 0)
                 {
+                    try {
                     var text = ReadFile(JokesLocation);
                     SyncedItems = SplitToLines(text).ToArray();
+                    } catch (System.Exception sex) {} //ignored
                 }
+                }catch (System.Exception seggs) {} //ignored
             }
         }
 
         private void CrimeClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
+        try {
+            Sync();
+            } catch (System.Exception ex) {} //ignored
             var funny = new string[] {
                 "genshin impact free waifu hack 2022 no virus",
                 "agony",
