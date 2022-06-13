@@ -1,54 +1,36 @@
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+using System;
 using System.Linq;
+using Gtk;
+using UI = Gtk.Builder.ObjectAttribute;
 
-namespace LeFishe2
+namespace LeFisheGTK
 {
-    public partial class MainWindow : Window
+    internal class MainWindow : Window
     {
-        public MainWindow()
+        [UI] private readonly Image imagebox;
+        [UI] private readonly Button viewstats;
+        [UI] private readonly Button okbutton;
+
+        public MainWindow() : this(new Builder("MainWindow.glade"))
         {
-            InitializeComponent();
-#if DEBUG
-            this.AttachDevTools();
-#endif
         }
 
-        private void InitializeComponent()
+        private MainWindow(Builder builder) : base(builder.GetRawOwnedObject("MainWindow"))
         {
-            AvaloniaXamlLoader.Load(this);
-            TextBlock mysteryCode = this.FindControl<StackPanel>("MainPanel").FindControl<TextBlock>("MysteryCode");
-            mysteryCode.PointerPressed += MysteryCode_PointerPressed;
-            mysteryCode.Tapped += MysteryCode_Tapped;
-        }
+            builder.Autoconnect(this);
 
-        private void MysteryCode_Tapped(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
-        {
-            RunProcess();
-        }
-
-        private void MysteryCode_PointerPressed(object? sender, Avalonia.Input.PointerPressedEventArgs e)
-        {
-            RunProcess();
-        }
-
-        private bool didRun = false;
-
-        private void RunProcess()
-        {
-            if (didRun)
+            using (var stream = new System.IO.MemoryStream(ExtractResource("icon.png")))
             {
-                return;
+                Icon = new Gdk.Pixbuf(stream);
             }
-            didRun = true;
-            var psi = new System.Diagnostics.ProcessStartInfo
+
+            DeleteEvent += Window_DeleteEvent;
+            using (var stream = new System.IO.MemoryStream(ExtractResource("fishe.png")))
             {
-                FileName = "https://github.com/ivanthesexy/LeFishe",
-                UseShellExecute = true,
-            };
-            System.Diagnostics.Process.Start(psi);
-            didRun = false;
+                imagebox.Pixbuf = new Gdk.Pixbuf(stream);
+            }
+            okbutton.Clicked += Okbutton_Clicked;
+            viewstats.Clicked += Viewstats_Clicked;
         }
 
         /// <summary>
@@ -71,7 +53,7 @@ namespace LeFishe2
 
         private string[]? SyncedItems = null;
 
-        private string JokesLocation => System.IO.Path.Combine(System.IO.Path.GetTempPath(), "LeFishe-jokes.txt");
+        private static string JokesLocation => System.IO.Path.Combine(System.IO.Path.GetTempPath(), "LeFishe-jokes.txt");
 
         /// <summary>
         /// Copied from https://github.com/Haltroy/HTAlt/blob/master/HTAlt.Standart/Tools.cs#L1486
@@ -136,7 +118,7 @@ namespace LeFishe2
             }
         }
 
-        private void CrimeClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void Viewstats_Clicked(object sender, EventArgs e)
         {
             try
             {
@@ -187,9 +169,24 @@ namespace LeFishe2
             Close();
         }
 
-        private void OkClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void Okbutton_Clicked(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private static byte[] ExtractResource(string filename)
+        {
+            System.Reflection.Assembly a = System.Reflection.Assembly.GetExecutingAssembly();
+            using System.IO.Stream resFilestream = a.GetManifestResourceStream(filename);
+            if (resFilestream == null) return null;
+            byte[] ba = new byte[resFilestream.Length];
+            resFilestream.Read(ba, 0, ba.Length);
+            return ba;
+        }
+
+        private void Window_DeleteEvent(object sender, DeleteEventArgs a)
+        {
+            Application.Quit();
         }
     }
 }

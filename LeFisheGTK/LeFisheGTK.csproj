@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon>ASSets\icon.ico</ApplicationIcon>
+    <Authors>Ivan The Sexy</Authors>
+    <Company>Ivan The Sexy</Company>
+    <Description>Le Fishe</Description>
+    <PackageProjectUrl>https://github.com/ivanthesexy/LeFishe</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ivanthesexy/LeFishe</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="**\*.glade" />
+    <EmbeddedResource Include="**\*.glade">
+      <LogicalName>%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+	
+	<ItemGroup>
+    <None Remove="ASSets\*" />
+    <EmbeddedResource Include="ASSets\*">
+      <LogicalName>%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+	
+	<ItemGroup>
+	  <Content Include="ASSets\icon.ico" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GtkSharp" Version="3.24.24.*" />
+  </ItemGroup>
+
+</Project>

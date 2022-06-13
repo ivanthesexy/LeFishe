@@ -1,24 +1,24 @@
 # LeFishe 2: Electric Boogaloo
 
-FROM THE CREATORS OF [THE SEXY CALCULATOR](https://github.com/ivanthesexy/hwcalculator) & LeFishe™®© 
+FROM THE CREATORS OF [THE SEXY CALCULATOR](https://github.com/ivanthesexy/hwcalculator) & LeFishe™®© & LeFishe 2™®© 
 
 I PRESENT TO YOU MY SEXY PEOPLE
 
-THE LeFishe™®© 2.0: Electric Boogaloo!
+THE LeFishe™®© 2.0: Electric Boogaloo! [Gay Tool Kit](https://www.gtk.org/) Edition!
 
 It's now even more great!
 
-- sexy ui thanks to [avalonia ui](http://avaloniaui.net/)
-- cross-platform so you can shut up about not using [wine](https://google.com/search?q=cheap+whiskey+and+piss)
-- the funny gets synced from repo so no need to rebuild it every time when someone adds a stupid fucking joke
-- if the sync fails the default edibles kicks in so no worries about that
-- also the link in ui is a bait it doesnt work go cry about it
+- sexy ui thanks to [elevator oi](http://avaloniaui.net/) or [gramps testicle kancer](https://www.qt.io/)
+- cross-platform so you can shut up about not using [whiskey](https://google.com/search?q=cheap+whiskey+and+piss)
+- the [funny](https://twitter.com/haltroy/satus/1535317244477157378) gets synced from repo so no [need](https://www.youtube.com/watch?v=YJVmu6yttiw) to rebuild it every time when someone adds a [stupid](https://haltroy.com) fucking joke
+- if the sync fails [the default edibles kicks](https://www.youtube.com/watch?v=w5x7956gchI&list=PL18gdV5DVDI6WMlxewR-v5y4FJng-HRxF&index=1&ab_channel=SiIvaGunner) in so no worries about that
+- ~~also the link in ui is a bait it doesnt work go cry about it~~ it now works [lmao](https://youtu.be/SkTt9k4Y-a8?t=137)
 
 **what happened to original project?**
 
 its in the `LeFishe` folder no worries but no one is going to maintain it
 
-it requires .NET Framework 2.0 and still works under wine good now shut up
+it requires [.NET Framework 2.0](https://www.youtube.com/watch?v=56duij_QzcA&t=6s) and still works under wine good now shut up
 
 ## screenshots
 

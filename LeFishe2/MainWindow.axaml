@@ -10,12 +10,12 @@
 		MaxWidth="370" MaxHeight="400"
 		MinWidth="370" MinHeight="400"
 		Background="#f0f0f0">
-	<StackPanel Margin="10">
+	<StackPanel Name="MainPanel" Margin="10">
 		<Label>Congratulations, you are our lucky winner!</Label>
 		<Panel Background="White">
 			<Image Width="370" Height="300" Source="/ASSets/fishe.png"></Image>
 		</Panel>
-		<TextBlock TextDecorations="Underline" Foreground="Blue" Classes="link">01100001 01100111 01101111 01101110 01111001</TextBlock>
+		<TextBlock Name="MysteryCode" TextDecorations="Underline" Foreground="Blue" Classes="link">01100001 01100111 01101111 01101110 01111001</TextBlock>
 		<DockPanel Margin="0 10 0 0">
 			<Button Click="CrimeClick" Name="Crime">View Black Crime Statistics</Button>
 			<Label Foreground="#f0f0f0">000000000000</Label>
