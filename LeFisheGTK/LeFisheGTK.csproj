@@ -10,6 +10,11 @@
     <PackageProjectUrl>https://github.com/ivanthesexy/LeFishe</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ivanthesexy/LeFishe</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <SelfContained>true</SelfContained>
+    <DebugType>embedded</DebugType>
+	  <PublishSingleFile>true</PublishSingleFile>
+	  <PublishTrimmed>true</PublishTrimmed>
   </PropertyGroup>
 
   <ItemGroup>

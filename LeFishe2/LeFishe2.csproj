@@ -13,6 +13,8 @@
 	  <PackageProjectUrl>https://github.com/ivanthesexy/LeFishe</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/ivanthesexy/LeFishe</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
+	  <InvariantGlobalization>true</InvariantGlobalization>
+    <SelfContained>true</SelfContained>
   </PropertyGroup>
   <ItemGroup>
     <None Remove=".gitignore" />
